@@ -18,9 +18,9 @@
   --muted: var(--fuji-gray);
   --accent: var(--crystal-blue);
 
-  --serif: 'Shippori Mincho', 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
-  --sans: system-ui, -apple-system, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono: 'UDEV Gothic', ui-monospace, 'SFMono-Regular', 'Cascadia Code', monospace;
+  --serif: 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', 'Noto Serif CJK JP', 'Shippori Mincho', serif;
+  --sans: system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', 'Noto Sans CJK JP', 'Meiryo', sans-serif;
+  --mono: 'UDEV Gothic NF', 'UDEV Gothic', ui-monospace, 'SFMono-Regular', 'JetBrains Mono', 'Noto Sans Mono CJK JP', monospace;
 }
 
 * {
