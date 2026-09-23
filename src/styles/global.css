@@ -18,11 +18,9 @@
   --muted: var(--fuji-gray);
   --accent: var(--crystal-blue);
 
-  /* Body: highly readable Japanese gothic. Headings: distinctive mincho. */
+  /* One family for the whole site. Hierarchy comes from size and weight. */
   --sans: 'Zen Kaku Gothic New', system-ui, -apple-system, 'Hiragino Kaku Gothic ProN',
     'Yu Gothic', 'Noto Sans JP', 'Noto Sans CJK JP', 'Meiryo', sans-serif;
-  --serif: 'Shippori Mincho B1', 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP',
-    'Noto Serif CJK JP', serif;
   --mono: 'UDEV Gothic NF', 'JetBrains Mono', ui-monospace, 'SFMono-Regular',
     'Noto Sans Mono CJK JP', monospace;
 
@@ -85,8 +83,9 @@ a:hover {
   border: 1px solid var(--sakura-pink);
   border-radius: 6px;
   color: var(--sakura-pink);
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 1rem;
+  font-weight: 700;
   line-height: 1;
 }
 .brand-text {
@@ -96,9 +95,10 @@ a:hover {
   line-height: 1.25;
 }
 .brand-name {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 1.15rem;
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
 }
 .brand-en {
   font-family: var(--sans);
@@ -125,10 +125,10 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-weight: 700;
-  line-height: 1.5;
-  letter-spacing: 0.03em;
+  line-height: 1.45;
+  letter-spacing: 0.02em;
 }
 h2 {
   margin: 3.6rem 0 1.4rem;
@@ -216,8 +216,8 @@ p {
   margin: 0.9rem 0 0.4rem;
 }
 .tag {
-  font-family: var(--mono);
-  font-size: 0.74rem;
+  font-family: var(--sans);
+  font-size: 0.75rem;
   color: var(--spring-blue);
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -238,8 +238,8 @@ p {
 }
 .posts time {
   color: var(--muted);
-  font-family: var(--mono);
-  font-size: 0.78rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
   white-space: nowrap;
 }
 
@@ -249,8 +249,8 @@ article h1 {
 }
 article .meta {
   color: var(--muted);
-  font-family: var(--mono);
-  font-size: 0.78rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
   letter-spacing: 0.04em;
   margin-bottom: 2rem;
 }
