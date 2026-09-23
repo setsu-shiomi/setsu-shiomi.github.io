@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import WorkCard from '../components/WorkCard.astro';
+import { SITE } from '../config';
+import { works } from '../data/works';
+
+const posts = Object.entries(import.meta.glob('../content/blog/*.md', { eager: true }))
+  .map(([path, mod]: [string, any]) => ({
+    slug: path.split('/').pop()!.replace('.md', ''),
+    ...mod.frontmatter,
+  }))
+  .sort((a: any, b: any) => (a.date < b.date ? 1 : -1))
+  .slice(0, 3);
+---
+
+<Base>
+  <section class="hero">
+    <h1>{SITE.name}</h1>
+    <p class="tagline">{SITE.tagline}</p>
+    <p class="lede">{SITE.description}</p>
+    <div class="cta">
+      <a class="btn" href="/works">作品を見る</a>
+      <a class="btn ghost" href={SITE.links.github}>GitHub</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Works</h2>
+    <ul class="cards">
+      {works.map((work) => <WorkCard work={work} />)}
+    </ul>
+  </section>
+
+  {posts.length > 0 && (
+    <section>
+      <h2>Blog</h2>
+      <ul class="posts">
+        {posts.map((post: any) => (
+          <li>
+            <a href={`/blog/${post.slug}`}>{post.title}</a>
+            <time>{post.date}</time>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+</Base>

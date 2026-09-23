@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const posts = Object.entries(import.meta.glob('../../content/blog/*.md', { eager: true }))
+  .map(([path, mod]: [string, any]) => ({
+    slug: path.split('/').pop()!.replace('.md', ''),
+    ...mod.frontmatter,
+  }))
+  .sort((a: any, b: any) => (a.date < b.date ? 1 : -1));
+---
+
+<Base title="Blog" description="書いたものの一覧。">
+  <section class="hero">
+    <h1>Blog</h1>
+    <p class="lede">実測と、作ったものの記録。</p>
+  </section>
+  <ul class="posts">
+    {posts.map((post: any) => (
+      <li>
+        <a href={`/blog/${post.slug}`}>{post.title}</a>
+        <time>{post.date}</time>
+      </li>
+    ))}
+  </ul>
+</Base>

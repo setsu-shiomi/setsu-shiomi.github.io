@@ -1,0 +1,22 @@
+---
+import type { Work } from '../data/works';
+
+interface Props {
+  work: Work;
+}
+
+const { work } = Astro.props;
+const href = work.repo ?? work.url;
+---
+
+<li class="card">
+  <div class="card-head">
+    <h3>{work.title}</h3>
+    <span class="badge">{work.status}</span>
+  </div>
+  <p>{work.description}</p>
+  <div class="tags">
+    {work.tags.map((tag) => <span class="tag">{tag}</span>)}
+  </div>
+  {href && <a class="more" href={href}>GitHub →</a>}
+</li>

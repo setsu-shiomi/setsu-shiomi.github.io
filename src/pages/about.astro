@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config';
+---
+
+<Base title="About" description="自己紹介。">
+  <section class="hero">
+    <h1>About</h1>
+  </section>
+  <p>
+    {SITE.name}（{SITE.nameEn}）。Arch Linux と niri を使い、手元のマシンでローカル AI を動かしています。
+    高い GPU を持たなくても、どこまで実用的に動くのかを実測して公開します。
+  </p>
+  <p>
+    関心: Linux、Wayland、ローカル LLM、音声認識、省電力、Rust。
+  </p>
+  <h2>Links</h2>
+  <ul class="posts">
+    <li><a href={SITE.links.github}>GitHub</a><span /></li>
+  </ul>
+</Base>

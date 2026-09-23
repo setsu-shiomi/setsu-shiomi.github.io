@@ -1,0 +1,244 @@
+:root {
+  --sumi-ink-0: #16161d;
+  --sumi-ink-1: #1f1f28;
+  --sumi-ink-2: #2a2a37;
+  --fuji-white: #dcd7ba;
+  --old-white: #c8c093;
+  --fuji-gray: #727169;
+  --crystal-blue: #7e9cd8;
+  --spring-blue: #7fb4ca;
+  --autumn-yellow: #dca561;
+  --spring-green: #98bb6c;
+  --sakura-pink: #d27e99;
+
+  --bg: var(--sumi-ink-0);
+  --surface: var(--sumi-ink-1);
+  --border: var(--sumi-ink-2);
+  --fg: var(--fuji-white);
+  --muted: var(--fuji-gray);
+  --accent: var(--crystal-blue);
+
+  --serif: 'Shippori Mincho', 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --sans: system-ui, -apple-system, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --mono: 'UDEV Gothic', ui-monospace, 'SFMono-Regular', 'Cascadia Code', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 1.6rem 1.25rem;
+}
+.brand {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--fg);
+  letter-spacing: 0.06em;
+}
+.brand-en {
+  margin-left: 0.6rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+}
+.site-header nav {
+  display: flex;
+  gap: 1.2rem;
+}
+.site-header nav a {
+  color: var(--old-white);
+  font-size: 0.95rem;
+}
+
+main {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+h2 {
+  margin-top: 3.2rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 1.25rem;
+}
+h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.hero {
+  padding: 3rem 0 1rem;
+}
+.hero h1 {
+  font-size: 2.2rem;
+  margin: 0 0 0.6rem;
+}
+.tagline {
+  color: var(--accent);
+  font-size: 1.05rem;
+  margin: 0 0 1.2rem;
+}
+.lede {
+  color: var(--old-white);
+}
+
+.cta {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.6rem;
+}
+.btn {
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 0.5rem 1.1rem;
+  color: var(--sumi-ink-0);
+  background: var(--accent);
+  font-size: 0.95rem;
+}
+.btn.ghost {
+  background: transparent;
+  color: var(--accent);
+}
+
+.cards,
+.posts {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 0;
+}
+.card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  padding: 1.2rem 1.3rem;
+  margin-bottom: 1rem;
+}
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+.badge {
+  color: var(--autumn-yellow);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+.card p {
+  color: var(--old-white);
+  margin: 0.6rem 0;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.8rem 0 0.4rem;
+}
+.tag {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--spring-blue);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
+}
+.more {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.posts li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.posts time {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+article h1 {
+  font-size: 1.7rem;
+  margin-top: 2rem;
+}
+article .meta {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.8rem;
+}
+article pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+}
+article code {
+  font-family: var(--mono);
+  font-size: 0.88rem;
+}
+article :not(pre) > code {
+  background: var(--surface);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}
+article blockquote {
+  border-left: 3px solid var(--accent);
+  margin: 1.2rem 0;
+  padding: 0.2rem 1rem;
+  color: var(--old-white);
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+}
