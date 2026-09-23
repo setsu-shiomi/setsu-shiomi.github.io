@@ -18,9 +18,15 @@
   --muted: var(--fuji-gray);
   --accent: var(--crystal-blue);
 
-  --serif: 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', 'Noto Serif CJK JP', 'Shippori Mincho', serif;
-  --sans: system-ui, -apple-system, 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', 'Noto Sans CJK JP', 'Meiryo', sans-serif;
-  --mono: 'UDEV Gothic NF', 'UDEV Gothic', ui-monospace, 'SFMono-Regular', 'JetBrains Mono', 'Noto Sans Mono CJK JP', monospace;
+  /* Body: highly readable Japanese gothic. Headings: distinctive mincho. */
+  --sans: 'Zen Kaku Gothic New', system-ui, -apple-system, 'Hiragino Kaku Gothic ProN',
+    'Yu Gothic', 'Noto Sans JP', 'Noto Sans CJK JP', 'Meiryo', sans-serif;
+  --serif: 'Shippori Mincho B1', 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP',
+    'Noto Serif CJK JP', serif;
+  --mono: 'UDEV Gothic NF', 'JetBrains Mono', ui-monospace, 'SFMono-Regular',
+    'Noto Sans Mono CJK JP', monospace;
+
+  --measure: 46rem;
 }
 
 * {
@@ -29,6 +35,8 @@
 
 html {
   color-scheme: dark;
+  font-size: 100%;
+  text-rendering: optimizeLegibility;
 }
 
 body {
@@ -36,8 +44,11 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--sans);
-  line-height: 1.85;
-  letter-spacing: 0.01em;
+  font-size: 1.0625rem;
+  line-height: 1.95;
+  letter-spacing: 0.015em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -46,6 +57,7 @@ a {
 }
 a:hover {
   text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 
 .site-header {
@@ -53,26 +65,50 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  max-width: 780px;
+  max-width: var(--measure);
   margin: 0 auto;
-  padding: 1.6rem 1.25rem;
+  padding: 1.8rem 1.25rem 1.4rem;
+  border-bottom: 1px solid var(--border);
 }
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--fg);
+}
+.brand .seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border: 1px solid var(--sakura-pink);
+  border-radius: 6px;
+  color: var(--sakura-pink);
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1;
+}
+.brand-text {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.25;
+}
+.brand-name {
   font-family: var(--serif);
   font-size: 1.15rem;
-  color: var(--fg);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
 }
 .brand-en {
-  margin-left: 0.6rem;
   font-family: var(--sans);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   color: var(--muted);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
 }
 .site-header nav {
   display: flex;
-  gap: 1.2rem;
+  gap: 1.3rem;
 }
 .site-header nav a {
   color: var(--old-white);
@@ -80,41 +116,46 @@ a:hover {
 }
 
 main {
-  max-width: 780px;
+  max-width: var(--measure);
   margin: 0 auto;
-  padding: 0 1.25rem 4rem;
+  padding: 0 1.25rem 5rem;
 }
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: var(--serif);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.5;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
 }
 h2 {
-  margin-top: 3.2rem;
-  padding-bottom: 0.4rem;
+  margin: 3.6rem 0 1.4rem;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border);
-  font-size: 1.25rem;
+  font-size: 1.4rem;
 }
 h3 {
   margin: 0;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
+}
+
+p {
+  margin: 1.1em 0;
 }
 
 .hero {
-  padding: 3rem 0 1rem;
+  padding: 3.4rem 0 1rem;
 }
 .hero h1 {
-  font-size: 2.2rem;
-  margin: 0 0 0.6rem;
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  margin: 0 0 0.7rem;
 }
 .tagline {
   color: var(--accent);
-  font-size: 1.05rem;
-  margin: 0 0 1.2rem;
+  font-size: 1.08rem;
+  margin: 0 0 1.3rem;
 }
 .lede {
   color: var(--old-white);
@@ -122,16 +163,18 @@ h3 {
 
 .cta {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.8rem;
-  margin-top: 1.6rem;
+  margin-top: 1.8rem;
 }
 .btn {
   border: 1px solid var(--accent);
   border-radius: 6px;
-  padding: 0.5rem 1.1rem;
+  padding: 0.55rem 1.15rem;
   color: var(--sumi-ink-0);
   background: var(--accent);
   font-size: 0.95rem;
+  font-weight: 700;
 }
 .btn.ghost {
   background: transparent;
@@ -142,14 +185,14 @@ h3 {
 .posts {
   list-style: none;
   padding: 0;
-  margin: 1.2rem 0 0;
+  margin: 1.4rem 0 0;
 }
 .card {
   border: 1px solid var(--border);
   border-radius: 10px;
   background: var(--surface);
-  padding: 1.2rem 1.3rem;
-  margin-bottom: 1rem;
+  padding: 1.3rem 1.4rem;
+  margin-bottom: 1.1rem;
 }
 .card-head {
   display: flex;
@@ -164,80 +207,102 @@ h3 {
 }
 .card p {
   color: var(--old-white);
-  margin: 0.6rem 0;
+  margin: 0.7rem 0;
 }
 .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  margin: 0.8rem 0 0.4rem;
+  margin: 0.9rem 0 0.4rem;
 }
 .tag {
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   color: var(--spring-blue);
   border: 1px solid var(--border);
   border-radius: 999px;
-  padding: 0.1rem 0.6rem;
+  padding: 0.12rem 0.65rem;
 }
 .more {
   display: inline-block;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
+  margin-top: 0.6rem;
+  font-size: 0.92rem;
 }
 
 .posts li {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.7rem 0;
+  padding: 0.85rem 0;
   border-bottom: 1px solid var(--border);
 }
 .posts time {
   color: var(--muted);
   font-family: var(--mono);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   white-space: nowrap;
 }
 
 article h1 {
-  font-size: 1.7rem;
-  margin-top: 2rem;
+  font-size: clamp(1.5rem, 4vw, 1.9rem);
+  margin: 2.4rem 0 0.4rem;
 }
 article .meta {
   color: var(--muted);
   font-family: var(--mono);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 2rem;
+}
+article p {
+  line-height: 2;
+}
+article ul,
+article ol {
+  padding-left: 1.4em;
+  line-height: 2;
+}
+article li {
+  margin: 0.4em 0;
 }
 article pre {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 1rem;
+  padding: 1.1rem 1.2rem;
   overflow-x: auto;
+  line-height: 1.7;
 }
 article code {
   font-family: var(--mono);
   font-size: 0.88rem;
+  letter-spacing: 0;
 }
 article :not(pre) > code {
   background: var(--surface);
-  padding: 0.1rem 0.35rem;
+  padding: 0.12rem 0.4rem;
   border-radius: 4px;
 }
 article blockquote {
   border-left: 3px solid var(--accent);
-  margin: 1.2rem 0;
-  padding: 0.2rem 1rem;
+  margin: 1.4rem 0;
+  padding: 0.3rem 1.1rem;
   color: var(--old-white);
+}
+article hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.6rem 0;
 }
 
 .site-footer {
   display: flex;
   justify-content: space-between;
-  max-width: 780px;
+  gap: 1rem;
+  flex-wrap: wrap;
+  max-width: var(--measure);
   margin: 0 auto;
-  padding: 1.5rem 1.25rem 3rem;
+  padding: 1.6rem 1.25rem 3.4rem;
   color: var(--muted);
   font-size: 0.85rem;
   border-top: 1px solid var(--border);
