@@ -24,3 +24,6 @@ npm run build    # -> dist/
 - `public/CNAME` pins the custom domain.
 - `npm` blocks postinstall scripts by default (npm 12); approve `esbuild` with
   `npm install-scripts approve esbuild` if install fails.
+- OG image: edit `assets/og.svg`, then `bash scripts/make-og.sh` to regenerate
+  `public/og.png`.
+- RSS at `/rss.xml`, sitemap via `@astrojs/sitemap`.
