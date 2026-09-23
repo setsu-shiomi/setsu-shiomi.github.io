@@ -6,7 +6,7 @@ export const SITE = {
   description:
     'Arch Linux・niri・ローカル LLM。高い GPU を使わず、手元のマシンでどこまで動くかを実測して公開する。',
   // Update after registering the domain.
-  url: 'https://setsu.me',
+  url: 'https://setsu.sh',
   author: '汐見セツ',
   links: {
     github: 'https://github.com/setsu-shiomi',

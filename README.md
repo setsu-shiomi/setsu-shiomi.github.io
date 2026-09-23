@@ -1,4 +1,4 @@
-# setsu.me
+# setsu.sh
 
 Personal site of 汐見セツ (Setsu Shiomi) - Linux and local AI, measured.
 
