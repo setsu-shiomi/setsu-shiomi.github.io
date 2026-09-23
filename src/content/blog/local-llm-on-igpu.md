@@ -1,6 +1,6 @@
 ---
 title: '内蔵GPUでQwen3-8Bを動かしたら 6 t/s だった'
-date: '2026-09-24'
+date: '2026-09-23'
 description: 'Radeon 860M（内蔵GPU）で llama.cpp を Vulkan 経由で動かし、実際の速度を測った。プロンプト処理 156 t/s、生成 6.04 t/s。高い GPU なしで、どこまで実用的かを確かめる。'
 ---
 
